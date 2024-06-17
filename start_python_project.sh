@@ -10,11 +10,12 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
+echo "Python Quick Start Script v0.2"
 # Get project name as a command-line argument
 project_name=$1
 
 # Create project directory
-cd "$HOME/dev/python_projects"
+cd "$HOME/Dropbox/dev_projects/python_projects"
 mkdir "$project_name"
 cd "$project_name"
 
@@ -23,16 +24,31 @@ virtualenv -p python3 venv
 source venv/bin/activate
 
 # Install dependencies (e.g., requests and numpy)
-# pip install numpy
+pip install python-dotenv
 
 # Create project structure
 mkdir src tests docs
 
-# Create main script
-touch src/main.py
+# Create main script and add starter code
+cat <<EOL > src/main.py
+import os
+from dotenv import load_dotenv
+
+# Automatically load the .env file from the current directory or parent directories
+load_dotenv()
+
+# Access the API keys
+twilio_api_key = os.getenv('API_KEY_TWILIO')
+stripe_api_key = os.getenv('API_KEY_STRIPE')
+openai_api_key = os.getenv('API_KEY_OPENAI')
+
+print(f'Twilio API Key: {twilio_api_key}')
+print(f'Stripe API Key: {stripe_api_key}')
+print(f'OpenAI API Key: {openai_api_key}')
+EOL
 
 # Create requirements.txt file
-touch requirements.txt
+echo "python-dotenv" > requirements.txt
 
 # Create README.md file
 touch README.md
@@ -41,13 +57,10 @@ touch README.md
 git init
 
 # Create a new repository on GitHub
-# Replace <YOUR_GITHUB_USERNAME> with your actual GitHub username
 gh repo create "$project_name" --private
 
 # Set up the remote repository
 git remote add origin "https://github.com/$GITHUB_USERNAME/$project_name.git"
-git remote add origin "https://github.com/$GITHUB_USERNAME/$project_name.git"
-
 
 echo "Current working directory: $(pwd)"
 echo "Git repository initialized and remote repository set up."
