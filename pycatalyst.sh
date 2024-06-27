@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace <YOUR_GITHUB_USERNAME> with your actual GitHub username
-GITHUB_USERNAME="ajot"
+GITHUB_USERNAME="YOUR_GITHUB_USERNAME"
 
 # Check if project name argument is provided
 if [ $# -eq 0 ]; then
@@ -10,7 +10,7 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-echo "Python Quick Start Script v0.2"
+echo "PyCatalyst - Python Quick Start Script v0.2"
 # Get project name as a command-line argument
 project_name=$1
 
