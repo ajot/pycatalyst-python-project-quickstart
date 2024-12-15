@@ -3,6 +3,10 @@
 # Replace <YOUR_GITHUB_USERNAME> with your actual GitHub username
 GITHUB_USERNAME="YOUR_GITHUB_USERNAME"
 
+# Note: This script works in conjunction with the 'source' command to persist directory changes in the current terminal session.
+# You can create an alias in your .zshrc or .bashrc file like this:
+# alias np='source /path/to/start_python_project.sh'
+
 # Check if project name argument is provided
 if [ $# -eq 0 ]; then
   echo "Error: Please provide a project name."
@@ -69,3 +73,6 @@ echo "Project setup complete. Happy coding!"
 
 # Open main.py in Visual Studio Code in a new window, and bring main.py to focus
 code --new-window . --goto src/main.py
+
+# Ensure terminal ends in the new project directory
+cd "$HOME/Dropbox/dev_projects/python_projects/$project_name"
