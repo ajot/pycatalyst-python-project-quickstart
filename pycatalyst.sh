@@ -30,11 +30,8 @@ source venv/bin/activate
 # Install dependencies (e.g., requests and numpy)
 pip install python-dotenv
 
-# Create project structure
-mkdir src tests docs
-
 # Create main script and add starter code
-cat <<EOL > src/main.py
+cat <<EOL > main.py
 import os
 from dotenv import load_dotenv
 
@@ -72,7 +69,7 @@ echo "Git repository initialized and remote repository set up."
 echo "Project setup complete. Happy coding!"
 
 # Open main.py in Visual Studio Code in a new window, and bring main.py to focus
-code --new-window . --goto src/main.py
+code --new-window . --goto main.py
 
 # Ensure terminal ends in the new project directory
 cd "$HOME/Dropbox/dev_projects/python_projects/$project_name"
