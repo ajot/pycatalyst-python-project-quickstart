@@ -24,7 +24,8 @@ mkdir "$project_name"
 cd "$project_name"
 
 # Initialize virtual environment
-virtualenv -p python3 venv
+# virtualenv -p python3 venv
+python3 -m venv venv
 source venv/bin/activate
 
 # Install dependencies (e.g., requests and numpy)
@@ -69,7 +70,7 @@ echo "Git repository initialized and remote repository set up."
 echo "Project setup complete. Happy coding!"
 
 # Open main.py in Visual Studio Code in a new window, and bring main.py to focus
-code --new-window . --goto main.py
+cursor --new-window . --goto main.py
 
 # Ensure terminal ends in the new project directory
 cd "$HOME/Dropbox/dev_projects/python_projects/$project_name"
